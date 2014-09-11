@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Station id:</strong>
+  <%= @consists_of.station_ID %>
+</p>
+
+<p>
+  <strong>Train id:</strong>
+  <%= @consists_of.train_ID %>
+</p>
+
+<p>
+  <strong>Stop number:</strong>
+  <%= @consists_of.stop_number %>
+</p>
+
+<%= link_to 'Edit', edit_consists_of_path(@consists_of) %> |
+<%= link_to 'Back', consists_ofs_path %>

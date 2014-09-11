@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140911111417) do
-=======
-ActiveRecord::Schema.define(version: 20140911110301) do
->>>>>>> ccdb43adaaa8c293697024b42f0286770b271530
+ActiveRecord::Schema.define(version: 20140911113129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
+  create_table "consists_ofs", force: true do |t|
+    t.integer  "station_ID"
+    t.integer  "train_ID"
+    t.integer  "stop_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "customers", force: true do |t|
     t.string   "PNR"
     t.string   "passenger_name"
@@ -35,24 +38,12 @@ ActiveRecord::Schema.define(version: 20140911110301) do
     t.datetime "updated_at"
   end
 
-  create_table "passengers", force: true do |t|
-    t.string   "PNR"
-    t.string   "passenger_name"
-    t.string   "Gender"
-    t.string   "Age"
-    t.string   "Seat_no"
-    t.string   "Class"
-    t.string   "Fare"
-    t.string   "Source_id"
-    t.string   "Destination_id"
-=======
   create_table "routes", force: true do |t|
     t.integer  "train_ID"
     t.integer  "stop_number"
     t.integer  "source_distace"
     t.string   "arrival_time"
     t.string   "departure_time"
->>>>>>> ccdb43adaaa8c293697024b42f0286770b271530
     t.datetime "created_at"
     t.datetime "updated_at"
   end

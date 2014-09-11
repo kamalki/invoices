@@ -1,0 +1,29 @@
+<h1>Listing consists_ofs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Station id</th>
+      <th>Train id</th>
+      <th>Stop number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consists_ofs.each do |consists_of| %>
+      <tr>
+        <td><%= consists_of.station_ID %></td>
+        <td><%= consists_of.train_ID %></td>
+        <td><%= consists_of.stop_number %></td>
+        <td><%= link_to 'Show', consists_of %></td>
+        <td><%= link_to 'Edit', edit_consists_of_path(consists_of) %></td>
+        <td><%= link_to 'Destroy', consists_of, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Consists of', new_consists_of_path %>

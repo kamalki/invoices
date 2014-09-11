@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
 
+  resources :consists_ofs
+
   resources :customers
 
   resources :routes
-
-
-  resources :passengers
 
 
   resources :stations
