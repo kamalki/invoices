@@ -2,16 +2,16 @@
 
 one:
   Email_id: MyString
-  Train_id: 
-  PNR: 
+  Train_id: 1
+  PNR: 1
   Available_date: 2014-09-11
   Reservation_status: MyString
   Reservation_date: 2014-09-11
 
 two:
   Email_id: MyString
-  Train_id: 
-  PNR: 
+  Train_id: 1
+  PNR: 1
   Available_date: 2014-09-11
   Reservation_status: MyString
   Reservation_date: 2014-09-11
