@@ -1,0 +1,53 @@
+<%= form_for(@passenger) do |f| %>
+  <% if @passenger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@passenger.errors.count, "error") %> prohibited this passenger from being saved:</h2>
+
+      <ul>
+      <% @passenger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :PNR %><br>
+    <%= f.text_field :PNR %>
+  </div>
+  <div class="field">
+    <%= f.label :passenger_name %><br>
+    <%= f.text_field :passenger_name %>
+  </div>
+  <div class="field">
+    <%= f.label :Gender %><br>
+    <%= f.text_field :Gender %>
+  </div>
+  <div class="field">
+    <%= f.label :Age %><br>
+    <%= f.text_field :Age %>
+  </div>
+  <div class="field">
+    <%= f.label :Seat_no. %><br>
+    <%= f.text_field :Seat_no. %>
+  </div>
+  <div class="field">
+    <%= f.label :Class %><br>
+    <%= f.text_field :Class %>
+  </div>
+  <div class="field">
+    <%= f.label :Fare %><br>
+    <%= f.text_field :Fare %>
+  </div>
+  <div class="field">
+    <%= f.label :Source_id %><br>
+    <%= f.text_field :Source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Destination_id %><br>
+    <%= f.text_field :Destination_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

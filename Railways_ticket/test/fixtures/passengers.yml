@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  PNR: MyString
+  passenger_name: MyString
+  Gender: MyString
+  Age: MyString
+  Seat_no.: MyString
+  Class: MyString
+  Fare: MyString
+  Source_id: MyString
+  Destination_id: MyString
+
+two:
+  PNR: MyString
+  passenger_name: MyString
+  Gender: MyString
+  Age: MyString
+  Seat_no.: MyString
+  Class: MyString
+  Fare: MyString
+  Source_id: MyString
+  Destination_id: MyString

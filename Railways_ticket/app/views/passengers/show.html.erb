@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pnr:</strong>
+  <%= @passenger.PNR %>
+</p>
+
+<p>
+  <strong>Passenger name:</strong>
+  <%= @passenger.passenger_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @passenger.Gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @passenger.Age %>
+</p>
+
+<p>
+  <strong>Seat no.:</strong>
+  <%= @passenger.Seat_no. %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @passenger.Class %>
+</p>
+
+<p>
+  <strong>Fare:</strong>
+  <%= @passenger.Fare %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @passenger.Source_id %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @passenger.Destination_id %>
+</p>
+
+<%= link_to 'Edit', edit_passenger_path(@passenger) %> |
+<%= link_to 'Back', passengers_path %>
