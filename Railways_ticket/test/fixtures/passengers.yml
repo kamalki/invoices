@@ -5,7 +5,7 @@ one:
   passenger_name: MyString
   Gender: MyString
   Age: MyString
-  Seat_no.: MyString
+  Seat_no: MyString
   Class: MyString
   Fare: MyString
   Source_id: MyString
@@ -16,7 +16,7 @@ two:
   passenger_name: MyString
   Gender: MyString
   Age: MyString
-  Seat_no.: MyString
+  Seat_no: MyString
   Class: MyString
   Fare: MyString
   Source_id: MyString

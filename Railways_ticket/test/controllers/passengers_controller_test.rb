@@ -18,7 +18,7 @@ class PassengersControllerTest < ActionController::TestCase
 
   test "should create passenger" do
     assert_difference('Passenger.count') do
-      post :create, passenger: { Age: @passenger.Age, Class: @passenger.Class, Destination_id: @passenger.Destination_id, Fare: @passenger.Fare, Gender: @passenger.Gender, PNR: @passenger.PNR, Seat_no.: @passenger.Seat_no., Source_id: @passenger.Source_id, passenger_name: @passenger.passenger_name }
+      post :create, passenger: { Age: @passenger.Age, Class: @passenger.Class, Destination_id: @passenger.Destination_id, Fare: @passenger.Fare, Gender: @passenger.Gender, PNR: @passenger.PNR, Seat_no: @passenger.Seat_no, Source_id: @passenger.Source_id, passenger_name: @passenger.passenger_name }
     end
 
     assert_redirected_to passenger_path(assigns(:passenger))
@@ -35,7 +35,7 @@ class PassengersControllerTest < ActionController::TestCase
   end
 
   test "should update passenger" do
-    patch :update, id: @passenger, passenger: { Age: @passenger.Age, Class: @passenger.Class, Destination_id: @passenger.Destination_id, Fare: @passenger.Fare, Gender: @passenger.Gender, PNR: @passenger.PNR, Seat_no.: @passenger.Seat_no., Source_id: @passenger.Source_id, passenger_name: @passenger.passenger_name }
+    patch :update, id: @passenger, passenger: { Age: @passenger.Age, Class: @passenger.Class, Destination_id: @passenger.Destination_id, Fare: @passenger.Fare, Gender: @passenger.Gender, PNR: @passenger.PNR, Seat_no: @passenger.Seat_no, Source_id: @passenger.Source_id, passenger_name: @passenger.passenger_name }
     assert_redirected_to passenger_path(assigns(:passenger))
   end
 
