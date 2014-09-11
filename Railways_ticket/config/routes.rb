@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
 
+  resources :reservations
+
+
   resources :consists_ofs
 
   resources :train_statuses
