@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  train_ID: 1
+  stop_number: 1
+  source_distace: 1
+  arrival_time: MyString
+  departure_time: MyString
+
+two:
+  train_ID: 1
+  stop_number: 1
+  source_distace: 1
+  arrival_time: MyString
+  departure_time: MyString
