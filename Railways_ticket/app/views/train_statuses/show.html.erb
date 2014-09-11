@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Train:</strong>
+  <%= @train_status.Train_id %>
+</p>
+
+<p>
+  <strong>Available date:</strong>
+  <%= @train_status.Available_date %>
+</p>
+
+<p>
+  <strong>Booked seat1:</strong>
+  <%= @train_status.Booked_seat1 %>
+</p>
+
+<p>
+  <strong>Booked seat2:</strong>
+  <%= @train_status.Booked_seat2 %>
+</p>
+
+<p>
+  <strong>Booked seat3:</strong>
+  <%= @train_status.Booked_seat3 %>
+</p>
+
+<p>
+  <strong>Waiting seat1:</strong>
+  <%= @train_status.Waiting_seat1 %>
+</p>
+
+<p>
+  <strong>Waiting seat2:</strong>
+  <%= @train_status.Waiting_seat2 %>
+</p>
+
+<p>
+  <strong>Waiting seat3:</strong>
+  <%= @train_status.Waiting_seat3 %>
+</p>
+
+<p>
+  <strong>Available seat1:</strong>
+  <%= @train_status.Available_seat1 %>
+</p>
+
+<p>
+  <strong>Avalable seat2:</strong>
+  <%= @train_status.Avalable_seat2 %>
+</p>
+
+<p>
+  <strong>Available seat3:</strong>
+  <%= @train_status.Available_seat3 %>
+</p>
+
+<%= link_to 'Edit', edit_train_status_path(@train_status) %> |
+<%= link_to 'Back', train_statuses_path %>

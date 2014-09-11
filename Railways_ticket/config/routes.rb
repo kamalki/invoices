@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 
+
   resources :consists_ofs
+
+  resources :train_statuses
+
 
   resources :customers
 
