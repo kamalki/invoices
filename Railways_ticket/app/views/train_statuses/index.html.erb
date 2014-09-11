@@ -1,0 +1,45 @@
+<h1>Listing train_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Train</th>
+      <th>Available date</th>
+      <th>Booked seat1</th>
+      <th>Booked seat2</th>
+      <th>Booked seat3</th>
+      <th>Waiting seat1</th>
+      <th>Waiting seat2</th>
+      <th>Waiting seat3</th>
+      <th>Available seat1</th>
+      <th>Avalable seat2</th>
+      <th>Available seat3</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @train_statuses.each do |train_status| %>
+      <tr>
+        <td><%= train_status.Train_id %></td>
+        <td><%= train_status.Available_date %></td>
+        <td><%= train_status.Booked_seat1 %></td>
+        <td><%= train_status.Booked_seat2 %></td>
+        <td><%= train_status.Booked_seat3 %></td>
+        <td><%= train_status.Waiting_seat1 %></td>
+        <td><%= train_status.Waiting_seat2 %></td>
+        <td><%= train_status.Waiting_seat3 %></td>
+        <td><%= train_status.Available_seat1 %></td>
+        <td><%= train_status.Avalable_seat2 %></td>
+        <td><%= train_status.Available_seat3 %></td>
+        <td><%= link_to 'Show', train_status %></td>
+        <td><%= link_to 'Edit', edit_train_status_path(train_status) %></td>
+        <td><%= link_to 'Destroy', train_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Train status', new_train_status_path %>

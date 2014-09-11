@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :train_statuses
+
   resources :customers
 
   resources :routes

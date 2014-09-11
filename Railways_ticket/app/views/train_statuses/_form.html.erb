@@ -1,0 +1,61 @@
+<%= form_for(@train_status) do |f| %>
+  <% if @train_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@train_status.errors.count, "error") %> prohibited this train_status from being saved:</h2>
+
+      <ul>
+      <% @train_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Train_id %><br>
+    <%= f.text_field :Train_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Available_date %><br>
+    <%= f.text_field :Available_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Booked_seat1 %><br>
+    <%= f.text_field :Booked_seat1 %>
+  </div>
+  <div class="field">
+    <%= f.label :Booked_seat2 %><br>
+    <%= f.text_field :Booked_seat2 %>
+  </div>
+  <div class="field">
+    <%= f.label :Booked_seat3 %><br>
+    <%= f.text_field :Booked_seat3 %>
+  </div>
+  <div class="field">
+    <%= f.label :Waiting_seat1 %><br>
+    <%= f.text_field :Waiting_seat1 %>
+  </div>
+  <div class="field">
+    <%= f.label :Waiting_seat2 %><br>
+    <%= f.text_field :Waiting_seat2 %>
+  </div>
+  <div class="field">
+    <%= f.label :Waiting_seat3 %><br>
+    <%= f.text_field :Waiting_seat3 %>
+  </div>
+  <div class="field">
+    <%= f.label :Available_seat1 %><br>
+    <%= f.text_field :Available_seat1 %>
+  </div>
+  <div class="field">
+    <%= f.label :Avalable_seat2 %><br>
+    <%= f.text_field :Avalable_seat2 %>
+  </div>
+  <div class="field">
+    <%= f.label :Available_seat3 %><br>
+    <%= f.text_field :Available_seat3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

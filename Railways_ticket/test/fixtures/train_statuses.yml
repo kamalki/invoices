@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Train_id: MyString
+  Available_date: MyString
+  Booked_seat1: MyString
+  Booked_seat2: MyString
+  Booked_seat3: MyString
+  Waiting_seat1: MyString
+  Waiting_seat2: MyString
+  Waiting_seat3: MyString
+  Available_seat1: MyString
+  Avalable_seat2: MyString
+  Available_seat3: MyString
+
+two:
+  Train_id: MyString
+  Available_date: MyString
+  Booked_seat1: MyString
+  Booked_seat2: MyString
+  Booked_seat3: MyString
+  Waiting_seat1: MyString
+  Waiting_seat2: MyString
+  Waiting_seat3: MyString
+  Available_seat1: MyString
+  Avalable_seat2: MyString
+  Available_seat3: MyString
