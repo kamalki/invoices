@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911113129) do
+ActiveRecord::Schema.define(version: 20140911113214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,22 @@ ActiveRecord::Schema.define(version: 20140911113129) do
   create_table "stations", force: true do |t|
     t.integer  "sation_id"
     t.string   "station_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "train_statuses", force: true do |t|
+    t.string   "Train_id"
+    t.string   "Available_date"
+    t.string   "Booked_seat1"
+    t.string   "Booked_seat2"
+    t.string   "Booked_seat3"
+    t.string   "Waiting_seat1"
+    t.string   "Waiting_seat2"
+    t.string   "Waiting_seat3"
+    t.string   "Available_seat1"
+    t.string   "Avalable_seat2"
+    t.string   "Available_seat3"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
