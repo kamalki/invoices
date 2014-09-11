@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :routes
 
 
-  resources :passengers
+
 
 
   resources :stations
