@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Train id:</strong>
+  <%= @route.train_ID %>
+</p>
+
+<p>
+  <strong>Stop number:</strong>
+  <%= @route.stop_number %>
+</p>
+
+<p>
+  <strong>Source distace:</strong>
+  <%= @route.source_distace %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @route.arrival_time %>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= @route.departure_time %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

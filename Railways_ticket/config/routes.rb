@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+
   resources :customers
+
+  resources :routes
+
 
   resources :passengers
 
