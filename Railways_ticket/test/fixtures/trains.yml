@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  train_name: MyString
+  train_type: MyString
+  seats_class1: MyString
+  seats_class2: MyString
+  fare_class1: MyString
+  fare_class2: MyString
+  available_days: MyString
+
+two:
+  train_name: MyString
+  train_type: MyString
+  seats_class1: MyString
+  seats_class2: MyString
+  fare_class1: MyString
+  fare_class2: MyString
+  available_days: MyString

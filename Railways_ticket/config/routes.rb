@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :passengers
+=======
+  resources :trains
+>>>>>>> 04a86f5664d7e24b4371c9997c07523a7e29e3b7
 
   resources :users
 
