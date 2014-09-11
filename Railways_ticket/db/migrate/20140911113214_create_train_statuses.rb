@@ -1,8 +1,8 @@
 class CreateTrainStatuses < ActiveRecord::Migration
   def change
     create_table :train_statuses do |t|
-      t.string :Train_id
-      t.string :Available_date
+      t.integer :Train_id
+      t.date :Available_date
       t.string :Booked_seat1
       t.string :Booked_seat2
       t.string :Booked_seat3
