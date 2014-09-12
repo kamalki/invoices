@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140912110036) do
+
+
+ActiveRecord::Schema.define(version: 20140912101043) do
+ActiveRecord::Schema.define(version: 20140912101858) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +112,11 @@ ActiveRecord::Schema.define(version: 20140912110036) do
     t.string   "available_days"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "trains_stations", force: true do |t|
+    t.integer "train_id"
+    t.integer "station_id"
   end
 
   create_table "users", force: true do |t|
