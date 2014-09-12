@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140912125133) do
-ActiveRecord::Schema.define(version: 20140912124828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +25,6 @@ ActiveRecord::Schema.define(version: 20140912124828) do
   end
 
   create_table "customers", force: true do |t|
-<<<<<<< HEAD
-    t.string   "PNR"
-    t.string   "passenger_name"
-    t.string   "Gender"
-    t.string   "Age"
-    t.string   "Seat_no"
-    t.string   "Class"
-    t.string   "Fare"
-=======
     t.integer  "PNR"
     t.string   "passenger_name"
     t.string   "Gender"
@@ -42,15 +32,11 @@ ActiveRecord::Schema.define(version: 20140912124828) do
     t.integer  "Seat_no"
     t.string   "Class"
     t.integer  "Fare"
->>>>>>> 7c6cd26da071104a2d39d4ef8a3b8c8c8638ab51
     t.string   "Source_id"
     t.string   "Destination_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
     t.integer  "reservation_id"
->>>>>>> 7c6cd26da071104a2d39d4ef8a3b8c8c8638ab51
   end
 
   create_table "reservations", force: true do |t|
@@ -112,16 +98,13 @@ ActiveRecord::Schema.define(version: 20140912124828) do
     t.integer  "available_days"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
+    t.integer  "consists_of_id"
+    t.integer  "train_status_id"
   end
 
   create_table "trains_stations", id: false, force: true do |t|
     t.integer "train_id"
     t.integer "station_id"
-=======
-    t.integer  "consists_of_id"
-    t.integer  "train_status_id"
->>>>>>> 7c6cd26da071104a2d39d4ef8a3b8c8c8638ab51
   end
 
   create_table "users", force: true do |t|
