@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140912110036) do
-
-
-ActiveRecord::Schema.define(version: 20140912101043) do
-ActiveRecord::Schema.define(version: 20140912101858) do
-
+ActiveRecord::Schema.define(version: 20140912125133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,20 +38,6 @@ ActiveRecord::Schema.define(version: 20140912101858) do
     t.datetime "updated_at"
   end
 
-  create_table "passengers", force: true do |t|
-    t.string   "PNR"
-    t.string   "passenger_name"
-    t.string   "Gender"
-    t.string   "Age"
-    t.string   "Seat_no"
-    t.string   "Class"
-    t.string   "Fare"
-    t.string   "Source_id"
-    t.string   "Destination_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "reservations", force: true do |t|
     t.string   "Email_id"
     t.integer  "Train_id"
@@ -67,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140912101858) do
     t.date     "Reservation_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "train_id"
+    t.integer  "station_id"
   end
 
   create_table "routes", force: true do |t|
@@ -77,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140912101858) do
     t.string   "departure_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "train_id"
   end
 
   create_table "stations", force: true do |t|
@@ -114,7 +97,7 @@ ActiveRecord::Schema.define(version: 20140912101858) do
     t.datetime "updated_at"
   end
 
-  create_table "trains_stations", force: true do |t|
+  create_table "trains_stations", id: false, force: true do |t|
     t.integer "train_id"
     t.integer "station_id"
   end
