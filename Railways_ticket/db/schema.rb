@@ -11,9 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140911113214) do
-
 ActiveRecord::Schema.define(version: 20140911120950) do
 
   # These are extensions that must be enabled in order to support this database
@@ -28,20 +25,6 @@ ActiveRecord::Schema.define(version: 20140911120950) do
   end
 
   create_table "customers", force: true do |t|
-    t.string   "PNR"
-    t.string   "passenger_name"
-    t.string   "Gender"
-    t.string   "Age"
-    t.string   "Seat_no"
-    t.string   "Class"
-    t.string   "Fare"
-    t.string   "Source_id"
-    t.string   "Destination_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "passengers", force: true do |t|
     t.string   "PNR"
     t.string   "passenger_name"
     t.string   "Gender"

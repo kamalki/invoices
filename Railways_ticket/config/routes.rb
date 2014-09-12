@@ -4,23 +4,17 @@ Rails.application.routes.draw do
 
   resources :reservations
 
-
   resources :consists_ofs
 
   resources :train_statuses
-
 
   resources :customers
 
   resources :routes
 
-
-
   resources :stations
 
- 
   resources :trains
-
 
   resources :users
 
