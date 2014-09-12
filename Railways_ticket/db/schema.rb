@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912125133) do
-ActiveRecord::Schema.define(version: 20140912124828) do
+ActiveRecord::Schema.define(version: 20140912130441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +25,6 @@ ActiveRecord::Schema.define(version: 20140912124828) do
   end
 
   create_table "customers", force: true do |t|
-<<<<<<< HEAD
     t.string   "PNR"
     t.string   "passenger_name"
     t.string   "Gender"
@@ -34,23 +32,11 @@ ActiveRecord::Schema.define(version: 20140912124828) do
     t.string   "Seat_no"
     t.string   "Class"
     t.string   "Fare"
-=======
-    t.integer  "PNR"
-    t.string   "passenger_name"
-    t.string   "Gender"
-    t.integer  "Age"
-    t.integer  "Seat_no"
-    t.string   "Class"
-    t.integer  "Fare"
->>>>>>> 7c6cd26da071104a2d39d4ef8a3b8c8c8638ab51
     t.string   "Source_id"
     t.string   "Destination_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
     t.integer  "reservation_id"
->>>>>>> 7c6cd26da071104a2d39d4ef8a3b8c8c8638ab51
   end
 
   create_table "reservations", force: true do |t|
@@ -64,14 +50,15 @@ ActiveRecord::Schema.define(version: 20140912124828) do
     t.datetime "updated_at"
     t.integer  "train_id"
     t.integer  "station_id"
+    t.integer  "user_id"
   end
 
   create_table "routes", force: true do |t|
     t.integer  "train_ID"
     t.integer  "stop_number"
     t.integer  "source_distace"
-    t.date     "arrival_time"
-    t.date     "departure_time"
+    t.string   "arrival_time"
+    t.string   "departure_time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "train_id"
@@ -87,8 +74,8 @@ ActiveRecord::Schema.define(version: 20140912124828) do
   end
 
   create_table "train_statuses", force: true do |t|
-    t.integer  "Train_id"
-    t.date     "Available_date"
+    t.string   "Train_id"
+    t.string   "Available_date"
     t.string   "Booked_seat1"
     t.string   "Booked_seat2"
     t.string   "Booked_seat3"
@@ -103,25 +90,22 @@ ActiveRecord::Schema.define(version: 20140912124828) do
   end
 
   create_table "trains", force: true do |t|
-    t.integer  "train_name"
+    t.string   "train_name"
     t.string   "train_type"
-    t.integer  "seats_class1"
-    t.integer  "seats_class2"
-    t.integer  "fare_class1"
-    t.integer  "fare_class2"
-    t.integer  "available_days"
+    t.string   "seats_class1"
+    t.string   "seats_class2"
+    t.string   "fare_class1"
+    t.string   "fare_class2"
+    t.string   "available_days"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
+    t.integer  "consists_of_id"
+    t.integer  "train_status_id"
   end
 
   create_table "trains_stations", id: false, force: true do |t|
     t.integer "train_id"
     t.integer "station_id"
-=======
-    t.integer  "consists_of_id"
-    t.integer  "train_status_id"
->>>>>>> 7c6cd26da071104a2d39d4ef8a3b8c8c8638ab51
   end
 
   create_table "users", force: true do |t|
