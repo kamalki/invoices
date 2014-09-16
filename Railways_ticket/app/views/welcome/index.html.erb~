@@ -22,7 +22,7 @@ body {
   </p>
  
   <p>
-    <%= submit_tag %>
+     <button type="button">Login</button> 
   </p>
 <% end %>
 

@@ -6,21 +6,28 @@
       <th>Name</th>
       <th>Gender</th>
       <th>Age</th>
-      <th>Email</th>
+      <font color="blue"><th>Email</th></font>
       <th>Mobile</th>
       <th>City</th>
       <th>State</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody>
+     <% kk ="4kaka" %>
+     <% if is_number?(kk) %>
+     <b><%= kk %></b>
+     <% else %>
+       <b>Error</b>
+     <% end %>
+     
+    <tbody>
     <% @users.each do |user| %>
+      
       <tr>
-        <td><%= user.name %></td>
+        <td><%= capitalize user.name %></td>
         <td><%= user.gender %></td>
         <td><%= user.age %></td>
-        <td><%= user.email_id %></td>
+        <td><font color="blue"> <%= user.email_id %></font></td>
         <td><%= user.mobile %></td>
         <td><%= user.city %></td>
         <td><%= user.state %></td>
@@ -30,6 +37,7 @@
       </tr>
     <% end %>
   </tbody>
+  
 </table>
 
 <br>
