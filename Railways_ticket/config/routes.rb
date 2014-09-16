@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
 
-  
-
  
-
-  get 'welcome/index'
+ get 'welcome/index'
  post 'stations/show' 
- post 'users/new'
-
-
+post 'trains/index'
 
   resources :reservations
 
