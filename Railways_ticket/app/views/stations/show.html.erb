@@ -32,7 +32,6 @@
 </select>
 </p>
 
-
 <tr>
 <td> Class:</td>
 <td>
@@ -84,7 +83,30 @@ showdate();
 <option value="E"> Composite Train</option>
 </select>
 </td>
+</tr>
+<tr>
+<td width="42%"> Train Number : </td>
+<td width="58%" valign="middle" align="left">
+<input id="lccp_trnno" type="text" alt="Train Number" maxlength="5" size="5" name="lccp_trnno">
+</td>
 </tr></br>
+
+<tr>
+<td colspan="2"> </td>
+</tr>
+<tr>
+<td>
+<input type="radio" checked="" value="ON" onclick="toggle1(this, 'myGroup')" name="monitor">
+One Way
+</td>
+<td>
+<input type="radio" onclick="toggle(this, 'myGroup')" name="monitor">
+Return journey
+</td>
+</tr></br>
+
+<%= link_to 'Submit', welcome_index_path %>
+
 <%= link_to 'Back', welcome_index_path %>
 
 

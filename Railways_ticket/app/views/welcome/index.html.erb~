@@ -22,7 +22,11 @@ body {
   </p>
  
   <p>
+<<<<<<< HEAD
+    <g:submitButton name="update" value="Update" />
+=======
     <%= submit_tag %>
+>>>>>>> 7615644f9d54c4871b90b2ab62e2421ac9d2a416
   </p>
 <% end %>
 
