@@ -22,7 +22,7 @@ body {
   </p>
  
   <p>
-     <button type="button">Login</button> 
+    <g:submitButton name="update" value="Update" />
   </p>
 <% end %>
 
