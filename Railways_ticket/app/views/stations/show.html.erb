@@ -1,14 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Station:</strong>
-  <%= @station.sation_id %>
+<p>  
+       Source station 
+<select name="post[city_id]">
+  <option value="">Select City</option>
+  <option value="kolhapur">kolhapur</option>
+  <option value="Rohatas">Rohatas</option>
+  <option value="DehrionSon">DehrionSon</option>
+  <option value="SASARAM">SASARAM</option>
+  <option value="GAYA">GAYA</option>
+  <option value="ARJUNBIGA">ARJUNBIGA</option>
+</select>
 </p>
-
-<p>
-  <strong>Station name:</strong>
-  <%= @station.station_name %>
+<p>  
+       Destination 
+<select name="post[city_id]">
+  <option value="">Select City</option>
+  <option value="kolhapur">kolhapur</option>
+  <option value="Rohatas">Rohatas</option>
+  <option value="DehrionSon">DehrionSon</option>
+  <option value="SASARAM">SASARAM</option>
+  <option value="GAYA">GAYA</option>
+  <option value="ARJUNBIGA">ARJUNBIGA</option>
+</select>
 </p>
-
-<%= link_to 'Edit', edit_station_path(@station) %> |
 <%= link_to 'Back', stations_path %>
