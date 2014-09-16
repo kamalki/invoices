@@ -1,7 +1,7 @@
 class CreateTrains < ActiveRecord::Migration
   def change
     create_table :trains do |t|
-      t.integer :train_name
+      t.string :train_name
       t.string :train_type
       t.integer :seats_class1
       t.integer :seats_class2
