@@ -17,7 +17,7 @@
   <tbody>
     <% @trains.each do |train| %>
       <tr>
-        <td><%= train.train_name %></td>
+        <td><input type="radio" checked="" value="ON" onclick="toggle1(this, 'myGroup')" name="monitor"><%= train.train_name %></td>
         <td><%= train.train_type %></td>
         <td><%= train.seats_class1 %></td>
         <td><%= train.seats_class2 %></td>
