@@ -1,14 +1,88 @@
+<style>
+    body {
+    background-color: #A3C2FF
+}
+</style>
+<body>
+<center>
+<h1>Ticket Booking</h1>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Station:</strong>
-  <%= @station.sation_id %>
+<p>  
+       Source station 
+<select name="post[city_id]">
+  <option value="">Select City</option>
+  <option value="kolhapur">kolhapur</option>
+  <option value="Rohatas">Rohatas</option>
+  <option value="DehrionSon">DehrionSon</option>
+  <option value="SASARAM">SASARAM</option>
+  <option value="GAYA">GAYA</option>
+  <option value="ARJUNBIGA">ARJUNBIGA</option>
+</select>
 </p>
-
-<p>
-  <strong>Station name:</strong>
-  <%= @station.station_name %>
+<p>  
+       Destination 
+<select name="post[city_id]">
+  <option value="">Select City</option>
+  <option value="kolhapur">kolhapur</option>
+  <option value="Rohatas">Rohatas</option>
+  <option value="DehrionSon">DehrionSon</option>
+  <option value="SASARAM">SASARAM</option>
+  <option value="GAYA">GAYA</option>
+  <option value="ARJUNBIGA">ARJUNBIGA</option>
+</select>
 </p>
-
-<%= link_to 'Edit', edit_station_path(@station) %> |
+<tr>
+<td> Class:</td>
+<td>
+<select class="text_input" size="1" name="lccp_classopt">
+<option value="ZZ"> ALL CLASS</option>
+<option value="1A"> FIRST AC</option>
+<option value="2A"> SECOND AC</option>
+<option value="3A"> THIRD AC</option>
+<option value="3E"> 3 AC Economy</option>
+<option value="CC"> AC CHAIR CAR</option>
+<option value="FC"> FIRST CLASS</option>
+<option value="SL" selected="selected"> SLEEPER CLASS</option>
+<option value="2S"> SECOND SEATING</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2"> </td>
+</tr>
+<tr>
+<p><td> Journey Date:</td>
+<td>
+<input type="text" alt="Date" maxlength="2" name="lccp_day" size="2">
+-
+<input type="text" alt="Month" maxlength="2" name="lccp_month" size="2">
+<script language="javascript">
+showdate();
+</script>
+<img alt="Calender" onclick="displayCalendar(document.myForm.lccp_day,document.myForm.lccp_month,'mm-dd-yyyy','04-23-2009',this,0,65,1,'-');" src="images/cal_1.gif">
+</td>
+</tr></p>
+<tr>
+<td colspan="2"> </td>
+</tr>
+<tr>
+<td colspan="2">
+ Train Type :                     
+<select class="text_input" size="1" name="lccp_trn_type">
+<option selected="" value="Z"> All types</option>
+<option value="R"> Rajdhani/Duronto </option>
+<option value="S"> Shatabdi</option>
+<option value="A"> Superfast/Yuva</option>
+<option value="B"> Mail/Express</option>
+<option value="C"> Passenger/ordinary</option>
+<option value="D"> Rail Motor</option>
+<option value="F"> Darjeeling Himalayan</option>
+<option value="G"> Garibrath Train</option>
+<option value="O"> Overseas Trains</option>
+<option value="E"> Composite Train</option>
+</select>
+</td>
+</tr></br>
 <%= link_to 'Back', stations_path %>
+</center>
+</body>
