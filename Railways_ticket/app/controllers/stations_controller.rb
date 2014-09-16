@@ -1,5 +1,5 @@
 class StationsController < ApplicationController
-  
+  http_basic_authenticate_with name: "dhh", password: "secret1"
   # GET /stations
   # GET /stations.json
   def index
