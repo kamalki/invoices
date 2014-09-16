@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
- 
-
+  get 'welcome/index'
+  get 'posts/create_post'
+  root 'welcome#index'
+  resources :posts
   resources :reservations
 
   resources :consists_ofs
