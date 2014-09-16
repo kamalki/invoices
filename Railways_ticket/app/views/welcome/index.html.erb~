@@ -18,15 +18,12 @@ body {
  
   <p>
     <%= label_tag :password %><br>
-    <%= text_area_tag :password %>
+    <%= text_field_tag :password %>
   </p>
  
   <p>
-<<<<<<< HEAD
-    <g:submitButton name="update" value="Update" />
-=======
-    <%= submit_tag %>
->>>>>>> 7615644f9d54c4871b90b2ab62e2421ac9d2a416
+    <input type="submit" value="Submit" />
+    <%= link_to 'New user register here', new_user_path %>
   </p>
 <% end %>
 
