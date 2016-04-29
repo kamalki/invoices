@@ -1,11 +1,16 @@
 package com.example.kamal.incomingcallspecial;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -29,8 +34,35 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 //        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(swipe_refresh_layout);
 //        swipeRefreshLayout.setOnRefreshListener(this);
 
-        
-        new GetContacts().execute();
+        if (CheckInternet()){
+            new GetContacts().execute();
+        }else{
+
+            SqliteHelper db = new SqliteHelper(this);
+            final Cursor res = db.selectRecords();
+            if(res.getCount() == 0) {
+                showMessage("Alert!","No Customer Details Found In local database.");
+                return;
+            }
+            StringBuffer buffer = new StringBuffer();
+            while (res.moveToNext()){
+//                buffer.append(""+res.getString(0)+"\n");
+                buffer.append(""+res.getString(1)+"\n");
+                buffer.append(""+res.getString(2)+"\n");
+                buffer.append("" + res.getString(3) + "\n_______________________________________\n");
+            }
+            ListView listview = (ListView)findViewById(R.id.list123);
+            String[] values = new String[] {buffer.toString()};
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1,values);
+            listview.setAdapter(adapter);
+        }
+    }
+    private void showMessage(String title, String Message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
     }
 
     @Override
@@ -96,6 +128,20 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             buckysAdapter.notifyDataSetChanged();
         }
     }
+
+    private boolean CheckInternet() {
+        ConnectivityManager connec = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        android.net.NetworkInfo wifi = connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        android.net.NetworkInfo mobile = connec.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        if (wifi.isConnected()) {
+            return true;
+        } else if (mobile.isConnected()) {
+            return true;
+        }
+        return false;
+    }
+
     public void getData() {
         new GetContacts().execute();
         swipeRefreshLayout.setRefreshing(false);

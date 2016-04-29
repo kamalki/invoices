@@ -2,11 +2,12 @@ package com.example.kamal.incomingcallspecial;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class RemarkActivity extends AppCompatActivity {
+public class RemarkActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonSend;
     private EditText remarkText;
@@ -37,7 +38,6 @@ public class RemarkActivity extends AppCompatActivity {
     SqliteHelper myDb;
     private Button buttonShow;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle b = getIntent().getExtras();
@@ -46,34 +46,40 @@ public class RemarkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remark);
 
-        myDb = new SqliteHelper(this);
-        
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        if (CheckInternet()) {
+            remarkText = (EditText) findViewById(R.id.remark);
+            buttonSend = (Button) findViewById(R.id.send);
+            buttonSend.setOnClickListener(RemarkActivity.this);
 
-        remarkText = (EditText) findViewById(R.id.remark);
-        buttonSend = (Button) findViewById(R.id.send);
-        buttonShow = (Button) findViewById(R.id.show);
+        } else {
 
-//        buttonSend.setOnClickListener(RemarkActivity.this);
-
-        AddData();
-        viewAll();
+            myDb = new SqliteHelper(this);
+            remarkText = (EditText) findViewById(R.id.remark);
+            buttonSend = (Button) findViewById(R.id.send);
+            buttonShow = (Button) findViewById(R.id.show);
+            AddData();
+            viewAll();
+        }
 
     }
 
     public void AddData(){
-
         buttonSend.setOnClickListener(
-
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isinserted = myDb.insertLead(phone_number,currentDateandTime,remarkText.getText().toString());
-                        if(isinserted = true)
-                            Toast.makeText(RemarkActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(RemarkActivity.this,"Data not inserted", Toast.LENGTH_LONG).show();
+                        remark = remarkText.getText().toString();
+                        boolean invalid = false;
+                        if (remark.equals("")) {
+                            invalid = true;
+                            Toast.makeText(getApplicationContext(), "Please Enter your Remark", Toast.LENGTH_SHORT).show();
+                        }else{
+                            boolean isinserted = myDb.insertLead(phone_number, currentDateandTime, remark);
+                            if (isinserted = true)
+                                Toast.makeText(RemarkActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(RemarkActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
         );
@@ -99,7 +105,13 @@ public class RemarkActivity extends AppCompatActivity {
                             buffer.append("Remark :"+res.getString(3)+"\n\n");
                         }
 
-                        showMessage("Data",buffer.toString());
+//                        String bufferstring = buffer.toString();
+//                        Intent intent = new Intent(RemarkActivity.this, Display.class);
+//                        intent.putExtra("bufferstring", bufferstring);
+//                        startActivity(intent);
+
+                       showMessage("Data",buffer.toString());
+
                     }
                 }
         );
@@ -112,52 +124,40 @@ public class RemarkActivity extends AppCompatActivity {
         builder.show();
     }
 
+        @Override
+        public void onClick(View v) {
+            postRemark();
+        }
 
+        private void postRemark() {
+            remark = remarkText.getText().toString();
 
-//        @Override
-//        public void onClick(View v) {
-//            postRemark();
-//        }
-//
-//        private void postRemark() {
-//            remark = remarkText.getText().toString();
-//
-//            if (remark.equals("")) {
-//                return;
-//            }
-//            if (CheckInternet()) {
-//                try {
-//                    makeHTTPPOSTRequest();
-//                } catch (URISyntaxException e) {
-//                    e.printStackTrace();
-//                } catch (HttpException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Intent intent = new Intent(RemarkActivity.this, MainActivity.class);
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        startActivity(intent);
-//                    }
-//                },500);
-//
-//            } else {
+            boolean invalid = false;
+            if (remark.equals("")) {
+                invalid = true;
+                Toast.makeText(getApplicationContext(), "Please Enter your Remark", Toast.LENGTH_SHORT).show();
+            }else {
 
-//                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-//                SharedPreferences.Editor editor = settings.edit();
-//                editor.putString("phone_number", phone_number);
-//                editor.putString("remark", remark);
-//                editor.commit();
-//                Intent sd=new Intent(RemarkActivity.this,Display.class);
-//                startActivity(sd);
-//            }
-//
-//        }
+                try {
+                    makeHTTPPOSTRequest();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                } catch (HttpException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(RemarkActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                }, 500);
+            }
+        }
 
     private boolean CheckInternet() {
             ConnectivityManager connec = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);

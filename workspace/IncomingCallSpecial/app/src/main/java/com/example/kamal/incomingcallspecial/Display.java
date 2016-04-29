@@ -1,58 +1,55 @@
 package com.example.kamal.incomingcallspecial;
 
+import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
 public class Display extends AppCompatActivity {
 
     public static final String PREFS_NAME = "MyPrefsFile";
-    public static final String phone_number = "phone_number";
-    public static final String remark = "remark";
-    private String phone_no;
-    private String currentDateandTime;
-    private String remarki;
-
-
-    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        Bundle b = getIntent().getExtras();
-//        phone_no = (String) b.getString("phone_number");
-//        currentDateandTime = (String) b.getString("call_date");
-//        remarki = (String) b.getString("remark");
+//        String bufferstring = (String) b.getString("bufferstring");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
+//        TextView buffer = (TextView) findViewById(R.id.buffer);
+//        buffer.setText(bufferstring);
 
         SqliteHelper db = new SqliteHelper(this);
-        final Cursor cursor = db.selectRecords();
-        String[] columns = new String[] {"Phone_number","Remark"};
+        final Cursor res = db.selectRecords();
 
-        int [] widgets = new int[] {R.id.phone_number, R.id.userRemark};
+//        String[] columns = new String[] {"UserId","Phone_number","Call_date","Remark"};
+//        int [] widgets = new int[] {R.id.userid, R.id.phone_number,R.id.call_date, R.id.userRemark};
+//        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, res, columns, widgets, 0);
+//        ListView listView = (ListView)findViewById(R.id.list);
+//        listView.setAdapter(cursorAdapter);
 
-        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, columns, widgets, 0);
-        listView = (ListView)findViewById(R.id.list);
-        listView.setAdapter(cursorAdapter);
-
-
-//        ListView listview = (ListView)findViewById(R.id.list);
-//        String[] values = new String[] {"UserId", "Phone_number","Remark"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1,values);
-//        listview.setAdapter(adapter);
-
-
-//        TextView phone = (TextView) findViewById(R.id.etPhone);
-//        TextView remark1 = (TextView) findViewById(R.id.etRemark);
-//        SharedPreferences sharedpreferences = getSharedPreferences(PREFS_NAME, 0);
-//
-//        if (sharedpreferences.contains(phone_number)) {
-//            phone.setText(sharedpreferences.getString(phone_number, ""));
-//        }
-//        if (sharedpreferences.contains(remark)) {
-//            remark1.setText(sharedpreferences.getString(remark, ""));
-//        }
+        if(res.getCount() == 0) {
+            showMessage("Error","No Customer Details Found.");
+            return;
+        }
+        StringBuffer buffer = new StringBuffer();
+        while (res.moveToNext()){
+            buffer.append("Id :"+res.getString(0)+"\n");
+            buffer.append("Phone_number :"+res.getString(1)+"\n");
+            buffer.append("Call_date :"+res.getString(2)+"\n");
+            buffer.append("Remark :" + res.getString(3) + "\n\n");
+        }
+        ListView listview = (ListView)findViewById(R.id.list);
+        String[] values = new String[] {buffer.toString()};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Display.this, android.R.layout.simple_list_item_1, android.R.id.text1,values);
+        listview.setAdapter(adapter);
+    }
+    private void showMessage(String title, String Message) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(true);
+            builder.setTitle(title);
+            builder.setMessage(Message);
+            builder.show();
     }
 }
